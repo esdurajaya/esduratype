@@ -1,0 +1,94 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+* { box-sizing: border-box; }
+body {
+  background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+  height:100vh; display:flex; justify-content:center; align-items:center; color:#fff;
+  font-family:'Press Start 2P', monospace;
+}
+.game-container {
+  background-color:#111; border:4px solid #00ffd5; padding:30px; width:460px;
+  text-align:center; box-shadow:0 0 20px #00ffd5;
+  position:relative;
+}
+h1 { font-size:18px; margin-bottom:20px; color:#00ffd5; }
+
+/* ===== Stats rapi ===== */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  font-size: 10px;
+  margin-bottom: 15px;
+  padding: 6px;
+  border: 2px solid #00ffd5;
+  background: #000;
+  border-radius: 4px;
+}
+
+.stats div {
+  text-align: center;
+  padding: 4px 0;
+  background: #111;
+  border: 1px solid #00ffd5;
+  border-radius: 2px;
+}
+
+.character-box { width:128px; height:128px; overflow:hidden; margin:10px auto; }
+.character-box img {
+  width:384px; height:128px; object-fit:none; image-rendering:pixelated;
+  filter:drop-shadow(0 0 10px #00ffd5); transition:0.1s;
+}
+.dialog-box {
+  max-width:300px; margin:10px auto 20px; padding:12px; background:#000;
+  border:3px solid #ffcc00; color:#ffcc00; font-size:8px; text-align:center; position:relative;
+}
+.dialog-box::after {
+  content:""; position:absolute; top:-10px; left:50%; transform:translateX(-50%);
+  border-width:0 8px 10px; border-style:solid; border-color:transparent transparent #ffcc00 transparent;
+}
+.word-box { background:#000; border:3px solid #ffcc00; padding:20px; font-size:16px; margin-bottom:20px; min-height:50px; }
+input {
+  width:100%; padding:15px; font-family:'Press Start 2P'; font-size:10px; outline:none;
+  border:3px solid #00ffd5; background:#000; color:#00ffd5; margin-bottom:20px;
+}
+input:disabled { opacity:0.5; }
+button { font-family:'Press Start 2P'; font-size:10px; padding:15px; width:100%; background:#00ffd5; border:none; cursor:pointer; }
+button:hover { background:#ffcc00; }
+label { font-size:8px; }
+select { font-family:'Press Start 2P'; font-size:8px; margin-bottom:10px; }
+
+/* efek flash kata */
+.word-correct { animation: flashGreen 0.4s; }
+.word-wrong { animation: flashRed 0.4s; }
+@keyframes flashGreen {
+  0% { background-color:#000; color:#00ff00; }
+  50% { background-color:#00ff00; color:#000; }
+  100% { background-color:#000; color:#00ff00; }
+}
+@keyframes flashRed {
+  0% { background-color:#000; color:#ff0000; }
+  50% { background-color:#ff0000; color:#000; }
+  100% { background-color:#000; color:#ff0000; }
+}
+
+/* efek combo */
+.combo-fire {
+  position:absolute;
+  font-size:20px;
+  color:#ff6600;
+  animation: rise 0.8s forwards;
+}
+@keyframes rise {
+  0% { opacity:1; transform:translateY(0px); }
+  100% { opacity:0; transform:translateY(-40px); }
+}
+
+/* ===== Responsive HP ===== */
+@media (max-width:500px){
+  .game-container { width:90vw; padding:15px; }
+  .word-box { font-size:14px; padding:15px; }
+  input { font-size:12px; padding:10px; }
+  .stats { grid-template-columns: repeat(2, 1fr); font-size:9px; }
+  .stats div { padding:3px 0; }
+}

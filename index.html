@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Pixel Type Rush EDU</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="game-container">
+<h1>PIXEL TYPE RUSH EDU</h1>
+
+<div class="stats">
+  <div>Skor: <span id="score">0</span></div>
+  <div>Waktu: <span id="time">30</span></div>
+  <div>WPM: <span id="wpm">0</span></div>
+  <div>Akurasi: <span id="accuracy">100</span>%</div>
+  <div>Combo: <span id="combo">0</span>x</div>
+</div>
+
+<div class="character-box">
+  <img id="guru" src="assets/guru_sprites.png" alt="Guru Pixel">
+</div>
+
+<div class="dialog-box" id="dialog">Ayo mulai, fokus ya!</div>
+
+<div>
+<label for="subject">Pilih Mapel:</label>
+<select id="subject">
+  <option value="informatika">Informatika</option>
+  <option value="matematika">Matematika</option>
+  <option value="bahasa">Bahasa Indonesia</option>
+  <option value="ipa">IPA</option>
+</select>
+</div>
+
+<div class="word-box" id="word">ready</div>
+<input type="text" id="input" placeholder="ketik di sini..." disabled>
+<button onclick="startGame()">START</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
